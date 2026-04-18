@@ -1,3 +1,4 @@
+import MoGuess from '@/components/MoGuess.vue'
 /**
  * declare module '@vue/runtime-core'
  *   现调整为
@@ -9,3 +10,4 @@ declare module 'vue' {
     //
   }
 }
+export type MoGuessInstance = InstanceType<typeof MoGuess>

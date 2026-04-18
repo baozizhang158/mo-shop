@@ -1,15 +1,17 @@
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import type { LoginResult } from '@/types/member'
 
 // 定义 Store
+
 export const useMemberStore = defineStore(
   'member',
   () => {
     // 会员信息
-    const profile = ref<any>()
+    const profile = ref<LoginResult>()
 
     // 保存会员信息，登录时使用
-    const setProfile = (val: any) => {
+    const setProfile = (val: LoginResult) => {
       profile.value = val
     }
 
@@ -26,7 +28,18 @@ export const useMemberStore = defineStore(
     }
   },
   // TODO: 持久化
+
   {
-    persist: true,
+    persist: {
+      // 告诉 Pinia 用哪个存储工具。因为 Pinia 默认用 Web 的 localStorage，但小程序不支持，所以要换成 uni-app 的存储 API。
+      storage: {
+        getItem(key) {
+          return uni.getStorageSync(key)
+        },
+        setItem(key, value) {
+          uni.setStorageSync(key, value)
+        },
+      },
+    },
   },
 )

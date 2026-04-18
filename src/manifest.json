@@ -1,5 +1,6 @@
 {
   "name": "小兔鲜儿",
+  // 应用标识，由 DCloud 云端分配
   "appid": "",
   "description": "",
   "versionName": "1.0.0",
@@ -50,7 +51,8 @@
   "quickapp": {},
   /* 小程序特有相关 */
   "mp-weixin": {
-    "appid": "",
+    // 微信小程序的 appid
+    "appid": "wx5e0f5b01830de82b",
     "setting": {
       "urlCheck": false
     },

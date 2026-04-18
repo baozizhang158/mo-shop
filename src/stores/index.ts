@@ -1,3 +1,4 @@
+//Pinia 持久化存储配置文件 src/store/index.ts
 import { createPinia } from 'pinia'
 import persist from 'pinia-plugin-persistedstate'
 
